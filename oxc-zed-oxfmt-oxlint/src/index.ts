@@ -1,3 +1,3 @@
 console.log("Hello World");
 
-function add();
+// function add();
