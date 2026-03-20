@@ -1,0 +1,31 @@
+{
+    "name": "dsa-with-typescript",
+    "version": "1.0.0",
+    "description": "learning datastructures and algorithms with typescript",
+    "homepage": "https://github.com/arpitjana2103/grow-08-interview-prep/tree/main#readme",
+    "bugs": {
+        "url": "https://github.com/arpitjana2103/grow-08-interview-prep/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arpitjana2103/grow-08-interview-prep.git#main"
+    },
+    "license": "ISC",
+    "author": "arpit jana",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "lint": "oxlint",
+        "lint:fix": "oxlint --fix",
+        "watch:ts": "tsc --watch"
+    },
+    "devDependencies": {
+        "@types/node": "^25.5.0",
+        "oxfmt": "^0.40.0",
+        "oxlint": "^1.55.0",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "random": "^5.4.1"
+    }
+}
