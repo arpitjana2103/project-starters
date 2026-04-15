@@ -1,60 +1,63 @@
 {
     "compilerOptions": {
-        // Target JavaScript version that TypeScript compiles to.
-        // ES2022 works well with modern Node (Node 18+).
-        "target": "ES2022",
+        // 📁 Project Structure
+        "rootDir": "./src", // Source code location (input folder)
+        "outDir": "./dist", // Compiled JS output directory
 
-        // Module system used in emitted JS.
-        // NodeNext enables native Node.js ESM behavior and works with "type": "module".
-        "module": "NodeNext",
+        // 🌍 Runtime & Module System
+        "module": "NodeNext", // Enables Node.js ESM + CommonJS interop
+        "moduleResolution": "NodeNext", // Use Node.js-style module resolution (required for NodeNext)
+        "target": "ES2022", // Output JS version (Node 18+ supports ES2022 natively)
+        "lib": ["ES2022"], // Available JS APIs (aligned with target)
+        "esModuleInterop": true, // Enables clean default imports for CommonJS modules
 
-        // How TypeScript resolves imports.
-        // NodeNext matches Node's ESM/CJS resolution rules (.js extensions, package exports, etc).
-        "moduleResolution": "NodeNext",
+        // 🔗 Path & Types
+        "types": ["node"], // Include Node.js global type definitions ( npm i -D @types/node )
+        "typeRoots": [
+            // Lookup paths for type definitions
+            "./node_modules/@types", // Standard @types packages
+            "./src/@types", // Custom local type declarations
+        ],
 
-        // Root folder of your TypeScript source files.
-        // Helps TypeScript preserve folder structure when compiling.
-        "rootDir": "./src",
+        // 📦 Output Control
+        "sourceMap": true, // Enable .map files (accurate stack traces in dev & prod)
+        "declaration": false, // Do not generate .d.ts files
+        "declarationMap": false, // Disable mapping for declarations
 
-        // Output directory where compiled JavaScript files go.
-        // Example: src/index.ts → dist/index.js
-        "outDir": "./dist",
+        // 🛡️ Type Safety
+        "strict": true, // Enable all strict type-checking rules
+        "noUncheckedIndexedAccess": true, // Adds undefined to unsafe index access
+        "exactOptionalPropertyTypes": true, // Optional props are strictly enforced
+        "noImplicitOverride": true, // Catches missing override keyword in subclasses
+        "noPropertyAccessFromIndexSignature": true, // Forces bracket notation on index-typed properties
 
-        // Enables all strict type-checking options.
-        // Includes: strictNullChecks, noImplicitAny, strictFunctionTypes, etc.
-        "strict": true,
+        // ⚙️ Module Behavior (Important for ESM)
+        "verbatimModuleSyntax": true, // Keeps imports exactly as written (no rewriting)
+        "isolatedModules": true, // Ensures each file compiles independently (required for tsx)
+        "moduleDetection": "force", // Treat all files as modules (no accidental script mode)
 
-        // Allows default imports from CommonJS modules.
-        // Example: import express from "express"
-        "esModuleInterop": true,
+        // 🚨 Code Safety
+        "noUncheckedSideEffectImports": true, // Warn on imports with hidden side effects
+        "noFallthroughCasesInSwitch": true, // Catches missing break/return in switch cases
+        "forceConsistentCasingInFileNames": true, // Prevents casing mismatch bugs on Linux/CI
 
-        // Skips type checking of declaration files (.d.ts) inside node_modules.
-        // Speeds up compilation and avoids third-party typing issues.
-        "skipLibCheck": true,
-
-        // Ensures import paths match exact file casing.
-        // Prevents issues when moving between Windows (case-insensitive) and Linux.
-        "forceConsistentCasingInFileNames": true,
-
-        // Allows importing JSON files directly.
-        // Example: import config from "./config.json"
-        "resolveJsonModule": true,
-
-        // Generates .d.ts type declaration files alongside compiled JS.
-        // Useful if your project is a library.
-        "declaration": false,
-
-        // Generates .map files linking compiled JS to original TS.
-        // Useful for debugging in IDEs and Node debuggers.
-        "sourceMap": false,
+        // ⚡ Performance
+        "skipLibCheck": true, // Skip type checking of node_modules (faster builds)
+        "incremental": true, // Cache build info for faster subsequent type checks
+        "tsBuildInfoFile": ".tsbuildinfo", // Location of incremental build cache file
     },
 
-    // Specifies which files TypeScript should include in the compilation.
-    // Here it compiles everything inside src/
-    "include": ["src"],
+    // 📂 File Inclusion
+    "include": [
+        "src/**/*.ts", // Include all TS files in src
+    ],
 
-    // Files or folders TypeScript should ignore.
-    // node_modules: dependencies
-    // dist: compiled output
-    "exclude": ["node_modules", "dist"],
+    // 🚫 File Exclusion
+    "exclude": [
+        "node_modules", // Ignore dependencies
+        "dist", // Ignore build output
+        "test", // Ignore test folder
+        "**/*.spec.ts", // Ignore spec test files
+        "**/*.test.ts", // Ignore unit test files
+    ],
 }

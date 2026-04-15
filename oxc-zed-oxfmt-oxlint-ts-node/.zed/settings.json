@@ -114,6 +114,7 @@
                         "name": "oxfmt",
                     },
                 },
+                { "code_action": "source.fixAll.oxc" },
             ],
         },
         "TSX": {
