@@ -114,7 +114,9 @@
                         "name": "oxfmt",
                     },
                 },
-                { "code_action": "source.fixAll.oxc" },
+                {
+                    "code_action": "source.fixAll.oxc",
+                },
             ],
         },
         "TSX": {
@@ -127,6 +129,9 @@
                     "language_server": {
                         "name": "oxfmt",
                     },
+                },
+                {
+                    "code_action": "source.fixAll.oxc",
                 },
             ],
         },
