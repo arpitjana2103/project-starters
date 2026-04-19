@@ -16,6 +16,7 @@
         "typescript/explicit-function-return-type": "off",
         "unicorn/no-empty-file": "off",
 
+        "react/only-export-components": ["warn", { "allowConstantExport": true }],
         "react/react-in-jsx-scope": "off",
 
         "import/no-unassigned-import": "off",
