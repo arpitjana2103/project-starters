@@ -1,6 +1,15 @@
 {
     "tab_size": 4,
     "lsp": {
+        "json-language-server": {
+            "initialization_options": {
+                "provideFormatter": true,
+                "schemas": [],
+                "schemaDownload": {
+                    "enable": false
+                }
+            }
+        },
         "oxlint": {
             "initialization_options": {
                 "settings": {
