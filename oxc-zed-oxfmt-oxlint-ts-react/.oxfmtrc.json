@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": ["src/components/ui/**"],
+  "tabWidth": 4,
+  "sortTailwindcss": {
+    "stylesheet": "./src/styles/index.css"
+  },
+  "sortImports": {
+    "groups": [
+      "side_effect",
+      "builtin",
+      "type",
+      "external",
+      ["internal", "subpath"],
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ],
+    "newlinesBetween": true,
+    "ignoreCase": true
+  }
+}

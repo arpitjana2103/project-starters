@@ -1,0 +1,46 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": ["react", "import", "typescript", "unicorn", "oxc"],
+    "options": {
+        "typeAware": true,
+        "typeCheck": true
+    },
+    "categories": {
+        "correctness": "error",
+        "suspicious": "warn",
+        "perf": "warn",
+        "style": "off"
+    },
+    "jsPlugins": ["@tanstack/eslint-plugin-query"],
+    "rules": {
+        "eslint/no-unused-vars": "off",
+        "eslint/no-underscore-dangle": "off",
+        "typescript/explicit-function-return-type": "off",
+        "typescript/no-unsafe-type-assertion": "off",
+        "unicorn/no-empty-file": "off",
+
+        "react/react-in-jsx-scope": "off",
+        "react/only-export-components": "off",
+        "react/no-array-index-key": "off",
+
+        "import/no-unassigned-import": "off",
+        "unicorn/filename-case": "off",
+        "react/jsx-max-depth": "off",
+        "eslint/func-style": "off",
+        "eslint/no-magic-numbers": "off",
+
+        // @tanstack/eslint-plugin-query rules
+        "@tanstack/query/exhaustive-deps": "error",
+        "@tanstack/query/stable-query-client": "error"
+    },
+    "env": {
+        "builtin": true,
+        "browser": true
+    },
+    "settings": {
+        "react": {
+            "version": "19.2.4"
+        }
+    },
+    "ignorePatterns": ["dist", "node_modules", "vite.config.ts", "src/components/ui"]
+}
