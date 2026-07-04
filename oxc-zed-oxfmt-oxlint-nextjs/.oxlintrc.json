@@ -1,0 +1,56 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": ["typescript", "eslint", "unicorn", "react", "import", "oxc", "nextjs"],
+    "categories": {
+        "correctness": "error",
+        "suspicious": "warn",
+        "perf": "warn",
+        "style": "off"
+    },
+    "rules": {
+        "eslint/no-unused-vars": "warn",
+        "eslint/no-underscore-dangle": "off",
+        "eslint/func-style": "off",
+        "eslint/no-magic-numbers": "off",
+
+        "typescript/explicit-function-return-type": "off",
+        "typescript/no-unsafe-type-assertion": "warn",
+        "typescript/no-explicit-any": "warn",
+        "typescript/consistent-type-imports": "warn",
+
+        "unicorn/no-empty-file": "off",
+        "unicorn/filename-case": "off",
+
+        "react/jsx-max-depth": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/only-export-components": "off",
+        "react/no-array-index-key": "warn",
+        "react/hook-use-state": "warn",
+
+        "import/no-unassigned-import": "off",
+
+        "nextjs/no-img-element": "error",
+        "nextjs/no-typos": "error",
+        "nextjs/next-script-for-ga": "error",
+        "nextjs/no-html-link-for-pages": "error",
+        "nextjs/no-head-element": "error"
+    },
+    "settings": {
+        "react": {
+            "version": "19.0.0"
+        },
+        "next": {
+            "rootDir": "./"
+        }
+    },
+    "env": {
+        "builtin": true,
+        "browser": true,
+        "node": true
+    },
+    "options": {
+        "typeAware": true,
+        "typeCheck": true
+    },
+    "ignorePatterns": [".next", "build", "node_modules", "next.config.ts"]
+}

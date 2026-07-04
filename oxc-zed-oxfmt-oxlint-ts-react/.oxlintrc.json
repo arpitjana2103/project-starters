@@ -1,6 +1,6 @@
 {
     "$schema": "./node_modules/oxlint/configuration_schema.json",
-    "plugins": ["react", "import", "typescript", "unicorn", "oxc"],
+    "plugins": ["eslint", "react", "import", "typescript", "unicorn", "oxc"],
     "options": {
         "typeAware": true,
         "typeCheck": true
@@ -11,14 +11,17 @@
         "perf": "warn",
         "style": "off"
     },
-    "jsPlugins": ["@tanstack/eslint-plugin-query"],
     "rules": {
         "eslint/no-unused-vars": "off",
         "eslint/no-underscore-dangle": "off",
+        "eslint/no-extend-native": "off",
+
         "typescript/explicit-function-return-type": "off",
         "typescript/no-unsafe-type-assertion": "off",
+
         "unicorn/no-empty-file": "off",
 
+        "react/rules-of-hooks": "error",
         "react/react-in-jsx-scope": "off",
         "react/only-export-components": "off",
         "react/no-array-index-key": "off",
@@ -29,9 +32,11 @@
         "eslint/func-style": "off",
         "eslint/no-magic-numbers": "off",
 
-        // @tanstack/eslint-plugin-query rules
-        "@tanstack/query/exhaustive-deps": "error",
-        "@tanstack/query/stable-query-client": "error"
+        // Project Exclusive
+        "typescript/restrict-template-expressions": "off",
+        "unicorn/no-new-array": "off",
+        "oxc/uninvoked-array-callback": "off",
+        "eslint/no-sparse-arrays": "off"
     },
     "env": {
         "builtin": true,
@@ -39,7 +44,7 @@
     },
     "settings": {
         "react": {
-            "version": "19.2.4"
+            "version": "19.2.7"
         }
     },
     "ignorePatterns": ["dist", "node_modules", "vite.config.ts", "src/components/ui"]
