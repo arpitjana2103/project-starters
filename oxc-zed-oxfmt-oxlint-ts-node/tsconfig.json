@@ -35,12 +35,12 @@
         // ⚡ Performance
         "skipLibCheck": true, // Skip type checking of node_modules (faster builds)
         "incremental": true, // Cache build info for faster subsequent type checks
-        "tsBuildInfoFile": ".tsbuildinfo" // Location of incremental build cache file
+        "tsBuildInfoFile": ".tsbuildinfo", // Location of incremental build cache file
     },
 
     // 📂 File Inclusion
     "include": [
-        "src/**/*.ts" // Include all TS files in src
+        "src/**/*.ts", // Include all TS files in src
     ],
 
     // 🚫 File Exclusion
@@ -49,6 +49,6 @@
         "dist", // Ignore build output
         "test", // Ignore test folder
         "**/*.spec.ts", // Ignore spec test files
-        "**/*.test.ts" // Ignore unit test files
-    ]
+        "**/*.test.ts", // Ignore unit test files
+    ],
 }

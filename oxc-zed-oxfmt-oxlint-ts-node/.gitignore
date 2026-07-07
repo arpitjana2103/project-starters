@@ -1,7 +1,5 @@
-notes.txt
-.tsbuildinfo
 node_modules
-dist/
+# Keep environment variables out of version control
 .env
 
 /src/generated/prisma

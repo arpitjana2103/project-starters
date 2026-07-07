@@ -1,15 +1,19 @@
 import "dotenv/config";
 
 import type { Request, Response, NextFunction } from "express";
+import type { StringValue as msStringValue } from "ms";
 
-import cors from "cors";
 import express from "express";
+import session from "express-session";
 import ms from "ms";
+import passport from "passport";
 import qs from "qs";
 
-import { config } from "./config/app.config.js";
-import { HTTPSTATUSCODE } from "./config/http.config.js";
+import { config, runningOnProduction } from "./configs/app.config.js";
+import { HTTPSTATUSCODE } from "./configs/http.config.js";
+import { prisma } from "./libs/prisma.js";
 import { handleAsyncError } from "./middlewares/async-handler.middleware.js";
+import { handleGlobalError } from "./middlewares/global-error-handler.middleware.js";
 
 const app = express();
 
@@ -28,30 +32,6 @@ app.set("query parser", function (queryString: string) {
     return qs.parse(queryString);
 });
 
-// Middleware: Parses URL-encoded request bodies
-// - Applies to Content-Type: application/x-www-form-urlencoded
-// - Attaches parsed payload to req.body
-// - Supports rich objects/arrays (extended: true)
-// - Payload size limit: 10MB
-app.use(express.urlencoded({ extended: true, limit: "10mb" }));
-
-// Middleware: Configures CORS policy
-// - Allows origin: https://myapp.com
-// - Permits methods: GET, POST, PUT, DELETE
-// - Allows headers: Content-Type, Authorization
-// - Enables credentials (cookies, auth headers)
-// - Preflight cache duration: 24h (maxAge in seconds)
-app.use(
-    cors({
-        origin: "https://frontendURL.com",
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type", "Authorization"],
-        credentials: true,
-        maxAge: ms("24h") / 1000,
-    }),
-);
-
-// Server Home Route
 app.get(
     "/",
     handleAsyncError(async function (
@@ -60,11 +40,15 @@ app.get(
         next: NextFunction,
     ): Promise<void> {
         res.status(HTTPSTATUSCODE.OK).json({
-            message: "Welcome To Learn-Prisma Server.",
+            message: "Welcome To TaskOrbit Server.",
         });
         return;
     }),
 );
+
+// Middleware: Global error handler with env-based responses
+// - Routes errors to dev or prod handlers based on environment
+app.use(handleGlobalError);
 
 // Starts HTTP server on configured PORT and logs environment details
 app.listen(config.PORT, async function () {
