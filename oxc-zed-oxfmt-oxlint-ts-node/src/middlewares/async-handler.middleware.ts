@@ -7,7 +7,7 @@ type AsyncController = (req: Request, res: Response, next: NextFunction) => Prom
 // - Forwards errors to Express error middleware via next()
 // - Eliminates need for try/catch in controllers
 export const handleAsyncError = (asyncController: AsyncController): RequestHandler => {
-    return (req, res, next) => {
+    return (req: Request, res: Response, next: NextFunction) => {
         asyncController(req, res, next).catch(next);
     };
 };
