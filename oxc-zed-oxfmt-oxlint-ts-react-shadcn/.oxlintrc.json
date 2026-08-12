@@ -14,11 +14,8 @@
     "rules": {
         "eslint/no-unused-vars": "off",
         "eslint/no-underscore-dangle": "off",
-        "eslint/no-extend-native": "off",
-
         "typescript/explicit-function-return-type": "off",
         "typescript/no-unsafe-type-assertion": "off",
-
         "unicorn/no-empty-file": "off",
 
         "react/rules-of-hooks": "error",
@@ -30,13 +27,7 @@
         "unicorn/filename-case": "off",
         "react/jsx-max-depth": "off",
         "eslint/func-style": "off",
-        "eslint/no-magic-numbers": "off",
-
-        // Project Exclusive
-        "typescript/restrict-template-expressions": "off",
-        "unicorn/no-new-array": "off",
-        "oxc/uninvoked-array-callback": "off",
-        "eslint/no-sparse-arrays": "off"
+        "eslint/no-magic-numbers": "off"
     },
     "env": {
         "builtin": true,
@@ -44,7 +35,7 @@
     },
     "settings": {
         "react": {
-            "version": "19.2.7"
+            "version": "19.2.4"
         }
     },
     "ignorePatterns": ["dist", "node_modules", "vite.config.ts", "src/components/ui"]

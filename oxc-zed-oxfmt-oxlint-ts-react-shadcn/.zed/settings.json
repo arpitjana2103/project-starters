@@ -49,10 +49,10 @@
     },
     "languages": {
         "CSS": {
-            "language_servers": ["vscode-css-language-server"],
+            "language_servers": ["!vscode-css-language-server"],
             "format_on_save": "on",
             "prettier": {
-                "allowed": true
+                "allowed": false
             },
             "formatter": "language_server"
         },

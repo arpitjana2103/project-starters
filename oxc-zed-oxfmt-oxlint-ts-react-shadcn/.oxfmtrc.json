@@ -1,0 +1,13 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "ignorePatterns": ["node_modules", "build", "src/components/ui/**"],
+    "tabWidth": 4,
+    "useTabs": false,
+    "trailingCommas": "all",
+    "singleQuote": false,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "semi": true,
+    "sortTailwindcss": true,
+    "sortImports": true
+}
