@@ -8,15 +8,16 @@
         "style": "off"
     },
     "rules": {
-        "eslint/no-unused-vars": "warn",
+        "eslint/no-unused-vars": "off",
         "eslint/no-underscore-dangle": "off",
         "eslint/func-style": "off",
         "eslint/no-magic-numbers": "off",
 
         "typescript/explicit-function-return-type": "off",
-        "typescript/no-unsafe-type-assertion": "warn",
+        "typescript/no-unsafe-type-assertion": "off",
         "typescript/no-explicit-any": "warn",
         "typescript/consistent-type-imports": "warn",
+        "typescript/no-unnecessary-type-assertion": "off",
 
         "unicorn/no-empty-file": "off",
         "unicorn/filename-case": "off",
@@ -52,5 +53,5 @@
         "typeAware": true,
         "typeCheck": true
     },
-    "ignorePatterns": [".next", "build", "node_modules", "next.config.ts"]
+    "ignorePatterns": [".next", "build", "node_modules", "next.config.ts", "/components/ui/**"]
 }

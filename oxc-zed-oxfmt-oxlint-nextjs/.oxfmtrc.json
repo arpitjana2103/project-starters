@@ -1,22 +1,14 @@
 {
     "$schema": "./node_modules/oxfmt/configuration_schema.json",
-    "ignorePatterns": ["/components/ui/**"],
+    "ignorePatterns": [".next", "node_modules", "build", "/components/ui/**"],
+    // "printWidth": 80,
     "tabWidth": 4,
-    "sortTailwindcss": {
-        "stylesheet": "./app/globals.css"
-    },
-    "sortImports": {
-        "groups": [
-            "side_effect",
-            "builtin",
-            "type",
-            "external",
-            ["internal", "subpath"],
-            ["parent", "sibling", "index"],
-            "style",
-            "unknown"
-        ],
-        "newlinesBetween": true,
-        "ignoreCase": true
-    }
+    "useTabs": false,
+    "trailingCommas": "all",
+    "singleQuote": false,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "semi": true,
+    "sortTailwindcss": true,
+    "sortImports": true
 }
